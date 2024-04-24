@@ -1,38 +1,123 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.login {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  height: 100vh;
 }
 
-.App-link {
-  color: #61dafb;
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.input-container{
+  padding-top: 7px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+
+/* .login-reg a {
+  margin-left: 3px;
+} */
+
+.navbar {
+  background: #000;
+}
+
+.navbar-brand img {
+max-height: 50px;
+padding-left: 1.5em;
+width: auto;
+object-fit: contain;
+}
+
+.nav-link,
+.navbar-brand {
+  color: #fff;
+  cursor: pointer;
+}
+
+.nav-link {
+  margin-right: 1em !important;
+}
+
+.nav-link:hover {
+  color: #8a2533;
+}
+
+.navbar-collapse {
+  justify-content: flex-end;
+}
+
+.navbar-heading {
+  color: #fff;
+  margin-right: 1em;
+}
+
+.page-footer {
+  background-color: #222;
+  color: #ccc;
+  padding: 1.5em 0;
+}
+
+.container {
+  max-width: 100%;
+  /* margin: 0 auto; */
+  padding: 0 1.5em;
+}
+
+.main-header { 
+  display: flex;
+  padding-top: 60px;
+  text-align: center;
+  
+}
+
+.expense-abstract {
+  position: relative;
+}
+
+.expense-abstract::after {
+  content: attr(data-fulltext);
+  position: absolute;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  padding: 10px;
+  z-index: 9999;
+  display: none;
+  width: 300px; 
+  max-height: 110px;
+  overflow-y: auto; 
+  right: 0;
+}
+
+.expense-abstract:hover::after {
+  display: block;
+}
+
+.reviewer-abstract {
+  position: relative;
+}
+
+.reviewer-abstract::after {
+  content: attr(data-fulltext);
+  position: absolute;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  padding: 10px;
+  z-index: 9999;
+  display: none;
+  width: 300px; 
+  max-height: 110px;
+  overflow-y: auto; 
+}
+
+.reviewer-abstract:hover::after {
+  display: block;
+}
+

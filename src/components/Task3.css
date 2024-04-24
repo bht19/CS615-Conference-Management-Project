@@ -1,0 +1,65 @@
+table {
+    align-items: center;
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  thead th {
+    background-color: #f2f2f2;
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  tbody td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  .TD {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .submit_btn {
+    align-self: center;
+    justify-content: center;
+    width: 100px;
+    margin-top: 10px;
+  }
+  
+  tbody select {
+    width: 100%;
+    padding: 6px 12px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>');
+    background-repeat: no-repeat;
+    background-position: right 8px top 50%;
+    background-size: 16px;
+    cursor: pointer;
+  }
+  
+  tbody select:hover {
+    border-color: #aaa;
+  }
+  
+  tbody select:focus {
+    border-color: #333;
+    outline: none;
+  }
+  
+  option {
+    background-color: white;
+  }
+  
+  option:hover {
+    background-color: #f2f2f2;
+  }
+  
