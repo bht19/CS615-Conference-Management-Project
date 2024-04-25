@@ -5,7 +5,7 @@ import axios from 'axios';
 import '../App.css';
 import { useNavigate } from 'react-router-dom';
 
-const Login = ({ setIsLoggedIn, handleError, handleStoredLoginState }) => {
+const Login = ({ setIsLoggedIn }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
@@ -38,21 +38,10 @@ const Login = ({ setIsLoggedIn, handleError, handleStoredLoginState }) => {
             .catch(err => console.log(err));
     };
 
-    const handleSuccessfulLogin = () => {
-        setIsLoggedIn();
-        // Optionally, call other functions to check state and local storage
-        handleStoredLoginState();
-    };
-
-    // Call handleError if login fails
-    const handleLoginError = (error) => {
-        handleError(error);
-    };
-
     return (
-        <div className="login">
+        <div className="login login-height">
             <form className="login-container" onSubmit={handleLogin}>
-                <img src="./logo192.png" alt="" height="430"/>
+                <img src="./logo192.png" alt=""/>
                 <div className="input-container">
                     <p><input type="email" placeholder="Email" value={email} onChange={handleEmailChange} required/></p>
                     <p><input type="password" placeholder="Password" value={password} onChange={handlePasswordChange} required/></p>
@@ -60,7 +49,7 @@ const Login = ({ setIsLoggedIn, handleError, handleStoredLoginState }) => {
                 </div>
             
             <div className='login-reg'>
-                <p>Don&apos;t have an account?
+                <p>Don&apos;t have an account?{' '}
                 <Link to='/signup'>Register</Link></p>
             </div>
             </form>

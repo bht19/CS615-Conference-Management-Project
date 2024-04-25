@@ -62,9 +62,9 @@ const Signup = () => {
     }
 
     return (
-        <div className="login">
+        <div className="login signup-height">
             <form className="login-container" onSubmit={handleSignup}>
-                <img src="./logo192.png" alt="Logo" width="350" height="300" />
+                <img src="./logo192.png" alt=""/>
                 <div className="input-container">
                     <p><input type="text" placeholder="Name" value={name} onChange={handleNameChange} required/></p>
                     <p><input type="text" placeholder="Affiliation" value={affiliation} onChange={handleAffiliationChange} required/></p>
@@ -77,7 +77,7 @@ const Signup = () => {
                 </div>
             
             <div className='login-reg'>
-                <p>Already have an account?
+                <p>Already have an account?{' '}
                 <Link to='/login'>Log In</Link></p>
             </div>
             </form>

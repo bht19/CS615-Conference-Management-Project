@@ -21,7 +21,6 @@ const LoginSignupApp = () => {
 
     return (
         <Router>
-            {/* {showNavbar && <NavbarInit />} */}
             <Routes>
                 <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
                 <Route path="/signup" element={<Signup />} />

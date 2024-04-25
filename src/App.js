@@ -36,10 +36,8 @@ const App = () => {
                     </div>
                 </div>
                 
-                <div className='row mt-3'>
-                    <div className='col-sm'>
-                        <Footer />
-                    </div>
+                <div>
+                    <Footer />
                 </div>
             </div>
         </AppProvider>

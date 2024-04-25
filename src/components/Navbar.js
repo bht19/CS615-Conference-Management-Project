@@ -8,9 +8,9 @@ const NavbarInit = () => {
 
     return (
         <header className="container-fluid">
-            <Navbar expand="md" fixed="top" variant="dark">
+            <Navbar expand="md" fixed="top" className="navbar">
                 <Navbar.Brand href="/home">
-                    <img src={logo} alt="Logo" style={{ display: 'flex' }} />
+                    <img src={logo} alt="Logo" className="navbar-logo" />
                 </Navbar.Brand>
                 <span className="navbar-heading">Conference Management System</span>
                 <Navbar.Toggle aria-controls="main-navigation" />
@@ -23,8 +23,12 @@ const NavbarInit = () => {
                             </>
                         ) : (
                             <>
+                                {location.pathname === '/app3' ? (
+                                    <Nav.Link as={Link} to="/home">Home</Nav.Link>
+                                ) : (
+                                    <Nav.Link as={Link} to="/app3">View/Assign</Nav.Link>
+                                )}
                                 <Nav.Link as={Link} to="/reviewer">Reviewers</Nav.Link>
-                                <Nav.Link as={Link} to="/app3">View/Assign</Nav.Link>
                             </>
                         )}
                         <Nav.Link as={Link} to="/login">Sign Out</Nav.Link>

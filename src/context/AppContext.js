@@ -33,12 +33,12 @@ export const AppProvider = (props) => {
 
     return (
         <AppContext.Provider
-            value={{
-                papers: state.papers,
-                dispatch,
-            }}
-        >
-            {props.children}
+        value={{
+            papers: state.papers,
+            dispatch,
+        }}
+    >
+        {props.children}
         </AppContext.Provider>
     );
 };

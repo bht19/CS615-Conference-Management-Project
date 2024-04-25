@@ -3,7 +3,14 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+}
+
+.login-height {
+  height: 110vh;
+}
+
+.signup-height {
+  height: 150vh;
 }
 
 .login-container {
@@ -11,29 +18,58 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
+  max-width: 400px; 
+  padding: 10px;
+  width: 100%; 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .input-container{
-  padding-top: 7px;
+  padding-top: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-/* .login-reg a {
-  margin-left: 3px;
-} */
+.login-container img {
+  max-width: 100%; 
+  height: auto;
+  object-fit: contain;
+}
+
+.input-container p {
+  margin: 10px 0;
+}
+
+.login-reg {
+  margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+  .login-container {
+    max-width: 80%; 
+  }
+
+  .designed-by {
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  .login-container {
+    padding: 15px; 
+  }
+}
 
 .navbar {
   background: #000;
 }
 
-.navbar-brand img {
-max-height: 50px;
-padding-left: 1.5em;
-width: auto;
-object-fit: contain;
+.navbar-logo {
+  max-height: 50px;
+  padding-left: 1.5em;
+  width: auto;
+  object-fit: contain;
 }
 
 .nav-link,
@@ -63,11 +99,11 @@ object-fit: contain;
   background-color: #222;
   color: #ccc;
   padding: 1.5em 0;
+  margin-bottom: 2px;
 }
 
 .container {
   max-width: 100%;
-  /* margin: 0 auto; */
   padding: 0 1.5em;
 }
 
@@ -76,6 +112,10 @@ object-fit: contain;
   padding-top: 60px;
   text-align: center;
   
+}
+
+.content-wrapper {
+  margin-top: 80px;
 }
 
 .expense-abstract {

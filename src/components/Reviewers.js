@@ -35,10 +35,9 @@ const ReviewersTable = () => {
   
   return (
     <div className='container'>
-                <div className='row mt-3'>
-                    <NavbarInit />
-                </div>
-      <h2>Reviewers</h2>
+      <NavbarInit />
+      <div className="content-wrapper">
+      <h3>Reviewers</h3>
       <table>
         <thead>
           <tr>
@@ -64,6 +63,7 @@ const ReviewersTable = () => {
           ))}
         </tbody>
       </table>
+    </div>
     </div>
   );
 };

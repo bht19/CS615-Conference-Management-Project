@@ -26,11 +26,11 @@ const Task3 = ({ data }) => {
     }, {});
 
     const papersObj = data.paper.reduce((obj, paper) => {
-        console.log("Paper ID:", paper.id);
-      obj[paper.id] = {
+      obj[paper.name] = {
         _id: paper.id,
-        title: paper.name, // Mapping 'name' to 'title'
-        authors: paper.author, // Mapping 'author' to 'authors'
+        title: paper.name, 
+        authors: paper.author, 
+        assigned: paper.assigned,
         rev1: paper.rev1 || "",
         rev2: paper.rev2 || "",
         rev3: paper.rev3 || "",
@@ -44,37 +44,46 @@ const Task3 = ({ data }) => {
     console.log("Papers object state:", papersObj); 
   }, [data]); 
 
+  const calculateAssigned = (rev1, rev2, rev3) => {
+    if (rev1 && rev2 && rev3) {
+      return 1;
+    } else {
+      return 0;
+    }
+  };
+
   const onSubmitData = async () => {
-    let response; // Define response variable outside try block
+    let response;
   
     try {
         const papersToUpdate = Object.values(papersObj).map(paper => ({
             _id: paper._id,
             rev1: paper.rev1,
             rev2: paper.rev2,
-            rev3: paper.rev3
+            rev3: paper.rev3,
+            assigned: calculateAssigned(paper.rev1, paper.rev2, paper.rev3)
           }));
       
           console.log("Papers to update:", papersToUpdate);
   
       response = await fetch('http://localhost:3001/api/papers', {
-        method: 'POST',
+        method: 'PUT',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ papers: papersToUpdate })  // Ensure format matches backend expectation
+        body: JSON.stringify({ papers: papersToUpdate }) 
       });
   
       if (response.ok) {
-        const result = await response.json(); // Move this line inside if condition
+        const result = await response.json(); 
         console.log('Data saved successfully:', result);
-        // Handle any post-save actions here, like updating the UI or state
+        alert('Reviewers updated successfully!');
       } else {
         throw new Error('Failed to save data');
       }
     } catch (error) {
       console.error('Error saving data:', error);
-      console.log('Response text:', await response?.text()); // Use optional chaining
+      console.log('Response text:', await response?.text());
     }
 };
 
@@ -93,10 +102,9 @@ const Task3 = ({ data }) => {
         <tbody>
           {Object.values(papersObj).map((paper, index) => (
             <TableRow
-            key={paper._id}  // Changed key to 'title' since it is the unique field
+            key={paper._id} 
               paper={paper}
               paperName={paper.title}
-              paperAuthor={paper.authors}
               reviewers={reviewers}
               setReviewers={setReviewers}
               setPapersObj={setPapersObj}

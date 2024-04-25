@@ -3,11 +3,10 @@ import { useState } from "react";
 const TableRow = ({
   paper,
   paperName,
-  paperAuthor,
   reviewers,
   setReviewers,
   setPapersObj,
-  index,
+  key,
 }) => {
   const [rev1, setRev1] = useState(paper.rev1);
   const [rev2, setRev2] = useState(paper.rev2);
@@ -17,7 +16,7 @@ const TableRow = ({
     const { value } = e.target;
     let prevValue;
 
-    if (reviewers[value].availableSlots > 0) {
+    if (!value || reviewers[value].availableSlots > 0) {
       if (revType === "rev1") {
         prevValue = rev1;
         setRev1(value);
@@ -29,16 +28,16 @@ const TableRow = ({
         setRev3(value);
       }
 
-      if (prevValue) {
+      if (prevValue && value) {
         setReviewers((prevState) => ({
           ...prevState,
           [value]: {
             assigned: reviewers[value].assigned + 1,
-            availableSlots: reviewers[value].availableSlots - 1,
+            availableSlots: reviewers[value]?.availableSlots - 1,
           },
           [prevValue]: {
-            assigned: reviewers[prevValue].assigned - 1,
-            availableSlots: reviewers[prevValue].availableSlots + 1,
+            assigned: reviewers[prevValue]?.assigned - 1,
+            availableSlots: reviewers[prevValue]?.availableSlots + 1,
           },
         }));
 
@@ -49,12 +48,27 @@ const TableRow = ({
             [revType]: value,
           },
         }));
+      } else if (prevValue && !value) {
+        setReviewers((prevState) => ({
+          ...prevState,
+          [prevValue]: {
+            assigned: reviewers[prevValue]?.assigned - 1,
+            availableSlots: reviewers[prevValue]?.availableSlots + 1,
+          },
+        }));
+        setPapersObj((prevState) => ({
+          ...prevState,
+          [paperName]: {
+            ...paper,
+            [revType]: "",
+          },
+        }));
       } else {
         setReviewers((prevState) => ({
           ...prevState,
           [value]: {
-            assigned: reviewers[value].assigned + 1,
-            availableSlots: reviewers[value].availableSlots - 1,
+            assigned: reviewers[value]?.assigned + 1,
+            availableSlots: reviewers[value]?.availableSlots - 1,
           },
         }));
 
@@ -105,9 +119,9 @@ const TableRow = ({
   };
 
   return (
-    <tr key={index}>
+    <tr key={key}>
       <td>{paperName}</td>
-      <td>{paperAuthor}</td>
+      <td>{paper.authors}</td>
       <td key="rev1">{generateReviewerCell("rev1", rev1)}</td>
       <td key="rev2">{generateReviewerCell("rev2", rev2)}</td>
       <td key="rev3">{generateReviewerCell("rev3", rev3)}</td>

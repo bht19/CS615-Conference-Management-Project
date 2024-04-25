@@ -13,14 +13,14 @@ function App() {
       try {
         const response = await fetch('http://localhost:3001/api/data');
         if (!response.ok) {
-          throw new Error('Failed to fetch data');
+          throw new Error("Failed to fetch data");
         }
         const data = await response.json();
         console.log("Data fetched from server:", data);
         setData(data);  // Update state with fetched data
         setError(null); // Clear any existing errors
       } catch (err) {
-        console.error('Failed to fetch data', err);
+        console.error("Failed to fetch data", err);
         setError(err.message);  // Set error message
       } finally {
         setLoading(false);  // Stop loading after fetch completes
@@ -36,13 +36,13 @@ function App() {
 
   return (
     <div className='container'>
-        <div className='row mt-3'>
-            <NavbarInit />
-        </div>          
-      <h1>Research Papers</h1>
-      <div className="Assign">
-        <Task3 data={data} />
-      </div>
+      <NavbarInit />
+      <div className="content-wrapper">  
+          <h3>Research Papers</h3>
+          <div className="Assign">
+            <Task3 data={data} />
+          </div>
+        </div>
     </div>
   );
 }
