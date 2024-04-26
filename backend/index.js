@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-const { Reviewer, Paper, User, Data, Reviewers } = require("./db");
+const { Reviewer, Paper, User, Data, Reviewers, Author } = require("./db");
 const port = process.env.port || 3001;
 const app = express();
 
@@ -47,10 +47,10 @@ app.get("/reviewer/:submittedby", async (req, res) => {
     try {
 
         const { submittedby } = req.params;
-        const user = await User.findOne({ name: submittedby });
+        const user = await Author.findOne({ name: submittedby });
 
         if (!user) {
-            return res.status(404).json({ message: "User not found" });
+            return res.status(404).json({ message: "Author not found" });
         }
 
         res.json(user);

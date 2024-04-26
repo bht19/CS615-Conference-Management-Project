@@ -24,13 +24,18 @@ const papersSchema = mongoose.Schema({
 
 const usersSchema = mongoose.Schema({
     name: String,
-    affiliation: String,
-    affiliation_addr: String,
     email: String,
     password: String,
-    contact: String,
-    link: String 
 }, { collection: 'users', versionKey: false});
+
+const authorSchema = mongoose.Schema({
+  name: String,
+  affiliation: String,
+  affiliation_addr: String,
+  email: String,
+  contact: String,
+  link: String 
+}, { collection: 'authors', versionKey: false});
 
 const dataSchema = new mongoose.Schema({
     title: {
@@ -63,9 +68,10 @@ const dataSchema = new mongoose.Schema({
 const Reviewer = mongoose.model("Reviewer", reviewerSchema);
 const Paper = mongoose.model("Paper", papersSchema);
 const User = mongoose.model("User", usersSchema);
+const Author = mongoose.model("Author", authorSchema);
 const Data = mongoose.model("Data", dataSchema);
 const Reviewers = mongoose.model('Reviewers', new mongoose.Schema({
     name: String,
   }));
 
-module.exports = { Reviewer, Paper, User, Data, Reviewers };
+module.exports = { Reviewer, Paper, User, Data, Reviewers, Author };
