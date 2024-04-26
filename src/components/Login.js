@@ -39,7 +39,7 @@ const Login = ({ setIsLoggedIn }) => {
     };
 
     return (
-        <div className="login login-height">
+        <div className="login">
             <form className="login-container" onSubmit={handleLogin}>
                 <img src="./logo192.png" alt=""/>
                 <div className="input-container">

@@ -7,7 +7,7 @@ const NavbarInit = () => {
     const location = useLocation();
 
     return (
-        <header className="container-fluid">
+        <header>
             <Navbar expand="md" fixed="top" className="navbar">
                 <Navbar.Brand href="/home">
                     <img src={logo} alt="Logo" className="navbar-logo" />

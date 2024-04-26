@@ -11,37 +11,39 @@ import './App.css'
 
 const App = () => {
     return (
-        <AppProvider>
-            <div className='container'>
-                <div className='row mt-3'>
-                    <NavbarInit />
+      <AppProvider>
+        <div className="container">
+            <NavbarInit />
+          <div className="Dcont">
+            <div className="CC">
+              <div className="row mt-3 main-header">
+                <div className="col-sm">
+                  <Papers />
                 </div>
-                <div className='row mt-3 main-header'>
-                    <div className='col-sm'>
-                        <Papers />
-                    </div>
-                    <div className='col-sm'>
-                        <Remaining />
-                    </div>
-                    <div className='col-sm'>
-                        <Assigned />
-                    </div>
+                <div className="col-sm">
+                  <Remaining />
                 </div>
-
-                
-                <h3 className='mt-3'>Paper Submissions</h3>
-                <div className='row '>
-                    <div className='col-sm'>
-                        <PapersList />
-                    </div>
+                <div className="col-sm">
+                  <Assigned />
                 </div>
-                
-                <div>
-                    <Footer />
-                </div>
+              </div>
             </div>
-        </AppProvider>
+            <div className="PSub">
+              <h3 className="mt-3">Paper Submissions</h3>
+              <div className="row ">
+                <div className="col-sm">
+                  <PapersList />
+                </div>
+              </div>
+            </div>
+  
+            <div>
+              <Footer />
+            </div>
+          </div>
+        </div>
+      </AppProvider>
     );
-};
-
+  };
+  
 export default App;

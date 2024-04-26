@@ -40,7 +40,7 @@ const Items = (props) => {
             <td className="expense-abstract" data-fulltext={
                 userDetails
                 ? `${userDetails.name}\n${userDetails.affiliation}\n${userDetails.affiliation_addr}\n${userDetails.email}\n${userDetails.contact}\n${userDetails.link}`
-                : 'No user details found'
+                : 'Author details not found'
                 }
                 onMouseEnter={handleHover}
                 style={{ whiteSpace: 'pre-line' }}>

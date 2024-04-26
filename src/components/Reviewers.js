@@ -49,7 +49,7 @@ const ReviewersTable = () => {
         <tbody>
           {reviewers.map(reviewer => (
             <tr key={reviewer._id}>
-              <td class="reviewer-abstract" data-fulltext={
+              <td className="reviewer-abstract" data-fulltext={
                 reviewerDetails
                 ? `${reviewerDetails.data.name}\n${reviewerDetails.data.qualification}\n${reviewerDetails.data.university}\n${reviewerDetails.data.address}\n${reviewerDetails.data.contact}\n${reviewerDetails.data.email}`
                 : 'No user details found'

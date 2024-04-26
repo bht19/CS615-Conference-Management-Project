@@ -8,7 +8,7 @@ const Papers = () => {
     return (
         <div className='alert alert-secondary'>
             <span>Total submissions: </span>
-            <input value={totalPapers}></input>
+            <input value={totalPapers} readOnly></input>
         </div>
             );
 };
